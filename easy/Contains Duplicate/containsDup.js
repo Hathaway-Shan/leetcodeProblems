@@ -50,4 +50,9 @@ function containsDupHashTable(array) {
   return containsDuplicate;
 }
 
+/*
+Success! This brings us back to 0(n) time. 
+1365ms runtime for a nested for loop becomes 100ms, although we do use more memory.
+*/
+
 console.log(containsDupHashTable(nums));
