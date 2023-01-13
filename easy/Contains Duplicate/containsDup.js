@@ -17,7 +17,9 @@ function containsDuplicate(array) {
     for (let y = i + 1; y < array.length; y++) {
       if (array[i] === array[y]) {
         containsDuplicate = true;
-        console.log(`duplicate values found at ${array[i]} and ${array[y]}`);
+        console.log(
+          `duplicate values found ${array[i]} at index ${i} and ${array[y]} at index ${y}`
+        );
         return containsDuplicate;
       }
     }
@@ -55,4 +57,16 @@ Success! This brings us back to 0(n) time.
 1365ms runtime for a nested for loop becomes 100ms, although we do use more memory.
 */
 
-console.log(containsDupHashTable(nums));
+console.log(containsDupHashTable(nums)); //returns expected
+
+/*
+This can also be simplified all the way to a one liner using JavaScripts built in Set() method
+Set create a new Map object, so it has a size property equivalent to an array length property
+Most notably Set will only use each value a single time, so no duplicates
+*/
+
+function containsDupSet(array) {
+  return new Set(array).size !== array.length;
+}
+
+console.log(containsDupSet(nums)); //returns expected

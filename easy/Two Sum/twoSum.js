@@ -71,4 +71,38 @@ var twoSumHashTable = function (array, target) {
   */
 };
 
-console.log(twoSumHashTable(testArray, 26)); //returns expected
+/*
+The above hashmap is classified as an object, which does come with some downsides
+-Objects come with their own properties which can collide with potential key names
+-There is no easy way get the size so it must be tracked manually
+-Since they are property names keys are limited to String or Symbol types
+-Objects are not optimized for frequent additions and removals of key value pairs
+
+For all these reasons we might choose instead to use JavaScripts build in new Map syntax
+*/
+
+function twoSumBuiltInMap(array, target) {
+  const hashmap = new Map();
+
+  for (let i = 0; i < array.length; i++) {
+    let diff = target - array[i];
+
+    if (hashmap.has(diff)) {
+      return [hashmap.get(diff), i];
+    }
+
+    hashmap.set(array[i], i);
+  }
+}
+
+// console.log(twoSumBuiltInMap(testArray, 22)); //returns expected
+
+/*
+Using the build in method gives us a few advantages
+-There are no pre-existing keys that can result in a collision
+-a Map has a size property to track its contents
+-a Map can have keys that are any data type
+-a Map has been optimized for repeated addition and insertion of key value pairs
+
+**see ReadMe or notes for Map object methods
+*/
