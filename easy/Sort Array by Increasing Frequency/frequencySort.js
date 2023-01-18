@@ -52,7 +52,12 @@ function sortByFrequency(array) {
   /*
   3. Sort the array
   sort() method compares two values 'a' and 'b'
+  sort operates as it's own little for loop comparing and returning two values in the array at a time
   */
+
+  // console.log(numberFrequency.get(1)); // returns 1
+  // console.log(numberFrequency.get(2)); // returns 2
+  // console.log(numberFrequency.get(3)); // returns 2
 
   return array.sort((a, b) => {
     if (numberFrequency.get(a) === numberFrequency.get(b)) {
