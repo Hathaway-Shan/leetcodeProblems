@@ -102,3 +102,31 @@ function quickFibonacci(n) {
 }
 
 console.log(quickFibonacci(30));
+
+/*
+my best solution is actually a blend of the two methods
+*/
+
+function fastFib(n) {
+  const fibonacciIndex = new Map();
+
+  //like with the array we set our first two values
+  fibonacciIndex.set(0, 0);
+  fibonacciIndex.set(1, 1);
+
+  //i continues to be two because the first two spots are taken
+  let i = 2;
+
+  while (i <= 30) {
+    //same as the array we use i - 1 and i - 2 to find our numbers but here we use the get() lookup method
+    let sum = fibonacciIndex.get(i - 1) + fibonacciIndex.get(i - 2);
+
+    fibonacciIndex.set(i, sum);
+    //weirdly the if statement makes this faster I cannot explain why
+    if (i <= 30) {
+      i++;
+    }
+  }
+
+  return fibonacciIndex.get(n);
+}
