@@ -37,3 +37,36 @@ var maxProfit = function (prices) {
 };
 
 console.log(maxProfit(arr)); //returns 5 as expected
+
+/*
+Most performant version I can code
+uses Math.min() to compare values for buyPrice 
+and rejects additional edge cases
+Math.max isn't used for calculating profit because it is a memory hog
+*/
+
+function bestTimingStocks(array) {
+  //edge case: if the length of the array is one we cannot buy return 0
+  if (prices.length === 1 || 0) {
+    return 0;
+  }
+
+  /*declare variables we will need 
+one to represent the initial price of the stock at index 0
+one to represent our profit which starts at 0*/
+  let buyPrice = prices[0];
+  let profit = 0;
+
+  for (let i = 0; i < prices.length; i++) {
+    //1. reset the value of our buy price if it's less than our initial one at index 0
+    buyPrice = Math.min(buyPrice, prices[i]);
+    //2. reset the value of our profit if the current index - our buyprice is positive
+    if (prices[i] - buyPrice > profit) {
+      profit = prices[i] - buyPrice;
+    }
+  }
+  //3. return whatever positive value remains
+  return profit;
+}
+
+// runtime 72ms 99%, memory 51mb 98%, on leetcode
