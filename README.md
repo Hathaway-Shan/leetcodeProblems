@@ -1,14 +1,14 @@
-# h1 Leetcode Lessons Learned and One liners
+# Leetcode Lessons Learned and One liners
 
 in the following sections I will detail some of the useful lessons and one liners I have picked up
 solving LeetCode problems.
 
-## h2 Lessons Learned
+## Lessons Learned
 
 1. **Number** and **parseInt** only have about 15 digits of decimal precision.
    If the number you're dealing with is larger than that you'll need to find a different tactic.
 
-## h2 One Liners
+## One Liners
 
 - Convert a string to a number
 
