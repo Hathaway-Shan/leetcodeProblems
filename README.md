@@ -62,3 +62,21 @@ const newArr = array.slice().toString().split(',')
 const singlePrint = newArr.join('')
 // console.log(singlePrint) //returns '123456789'
 ```
+
+- Populate a new Map with the number of times the value of a particular index occurs
+
+```js:
+hashMap.set(array[i], (array.get(array[i]) || 0) + 1)
+//array index is key, occurrence rate is the value
+```
+
+- Function to return keys of a map based on the contents of their value
+
+```js:
+function getKeyByValue(map, searchValue) {
+        for (let [key, value] of map.entries()) {
+            if (value === searchValue)
+            return key;
+        }
+    }
+```
