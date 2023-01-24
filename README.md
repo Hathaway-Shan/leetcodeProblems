@@ -8,6 +8,9 @@ solving LeetCode problems.
 1. **Number** and **parseInt** only have about 15 digits of decimal precision.
    If the number you're dealing with is larger than that you'll need to find a different tactic.
 
+2. **Objects** and **Arrays** cannot be compared with === or == even if their contents are identical
+   do it in a loop or something.
+
 ## One Liners
 
 - Convert a string to a number
@@ -66,7 +69,7 @@ const singlePrint = newArr.join('')
 - Populate a new Map with the number of times the value of a particular index occurs
 
 ```js:
-hashMap.set(array[i], (array.get(array[i]) || 0) + 1)
+hashMap.set(array[i], (hashMap.get(array[i]) || 0) + 1);
 //array index is key, occurrence rate is the value
 ```
 
@@ -79,4 +82,25 @@ function getKeyByValue(map, searchValue) {
             return key;
         }
     }
+```
+
+- Create an Array from the keys or values of a Map
+
+```js:
+//keys
+const mapKeyArray = Array.from(hashMap.keys())
+//values
+const mapValueArray = Array.from(hashMap.values())
+
+//can also be sorted
+const mapValueArray = Array.from(hashMap.values()).sort((a, b) => a - b);
+```
+
+- Create a Set from the keys or values of a Map two ways
+
+```js:
+//1.
+const set = new Set(Array.from(hashMap.values()))
+//2.
+const set = new Set([...hashMap.values()])
 ```
