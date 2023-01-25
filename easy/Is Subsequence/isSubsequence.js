@@ -46,3 +46,17 @@ function isSubsequence(s, t) {
 }
 
 console.log(isSubsequence(s, t)); //returns expected
+
+//using the most syntactically brief version if would look something like
+
+function subSequenceShort(s, t) {
+  let x = 0;
+
+  for (let i = 0; i < t.length; i++) {
+    if (s[x] === t[i]) {
+      x++;
+    }
+  }
+  //we remove the need for a conditional for the edge case s & t = '' by checking length in the return statement
+  return x === s.length;
+}
