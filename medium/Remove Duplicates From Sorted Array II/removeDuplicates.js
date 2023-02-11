@@ -17,7 +17,7 @@ const numberArr = [1, 1, 1, 2, 2, 3];
 //this is extremely similar to our Remove Array Values problems once again we can hit it from the back
 
 function leavePairs(array) {
-  //we'll need a way to keep track of the number of times a given value has occured
+  //we'll need a way to keep track of the number of times a given value has occurred
   let rate = 0;
 
   for (let i = array.length; i >= 0; i--) {
