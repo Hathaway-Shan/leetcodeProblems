@@ -1,6 +1,6 @@
 /*
 
-file path **node interviews/reUp**
+file path **node interviews/ReUp/reUp**
 
 given an array, return a new array without manipulating the original that 
 
