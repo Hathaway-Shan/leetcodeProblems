@@ -110,4 +110,37 @@ function missingCompany(set, pieces) {
   return "N/A";
 }
 
+// a more clean write up
+
+function findMissingCompany(uniformSet, uniformPieces) {
+  //we store all companies and their existing uniformPieces in a Map
+  const m = new Map();
+
+  for (let i = 0; i < uniformPieces.length; i++) {
+    //we get the values for the company name and clothing item
+    //by splitting on the underscore
+    let company = uniformPieces[i].split("_")[0];
+    let item = uniformPieces[i].split("_")[1];
+
+    //if the company doesn't exist in the Map create it
+    if (!m.has(company)) {
+      m.set(company, [item]);
+      //if it does exist push the new item into the value array
+    } else {
+      m.get(company).push(item);
+    }
+  }
+
+  //Now we can loop through the keys and values of m
+  for ([key, value] of m) {
+    //we check the value array of each key contains all values of uniformSet
+    for (let i = 0; i < uniformSet.length; i++) {
+      //if it does not return the company who failed the condition
+      if (!value.includes(uniformSet[i])) return `${key}`;
+    }
+  }
+  //if matches were found for everything return the string 'N/A'
+  return "N/A";
+}
+
 console.log(missingCompany(uniformSet3, uniformPieces3)); //passes all test cases
