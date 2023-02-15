@@ -81,36 +81,54 @@ function missingCompany(set, pieces) {
   const m = new Map();
   //we need to break pieces into something we can actually navigate
   for (let i = 0; i < pieces.length; i++) {
-    // let company = pieces[i].match(/^.*?(?=_)/g).toString();
-    // let item = pieces[i]
-    //   .match(/[^_]*$/g)
-    //   .toString()
-    //   .replace(/[,]/, "");
+    /*
+    Shans REGEX graveyard:
+    **matches characters before underscore
+    let company = pieces[i].match(/^.*?(?=_)/g).toString();
 
+    **matches characters after underscore and trims trailing comma
+    let item = pieces[i]
+      .match(/[^_]*$/g)
+      .toString()
+      .replace(/[,]/, "");
+    */
+
+    //turns out we can just split on a character and return strings by index ref
     let company = pieces[i].split("_")[0];
     let item = pieces[i].split("_")[1];
 
+    //Set key value pairs with company name as key and items as array containing first item
     if (!m.has(company)) {
       m.set(company, [item]);
     } else {
+      //if company already exists no need to set just push into the existing items array
       m.get(company).push(item);
     }
   }
   // console.log(m); //returns Map(2) { 'company1' => [ 'hat', 'glasses' ], 'company2' => [ 'hat' ] }
 
   //since the sets do not include all possible items checking by length might return false positives
-  //so we'll have to use the set array to check individual values with the lookups of our new Map
+  //we also should not check whether the uniformSet contains the items in the Map in the first loop because of false positives
+  //so we'll have to use the set array to check individual values with the lookups of our new Map in a second loop
   for ([key, value] of m) {
+    /*
+    console.log(key, value);
+    returns:
+    company1 [ 'hat', 'glasses' ]
+    company2 [ 'hat' ]
+    */
+
+    //I can't think of a better solution that a nested loop to check this, but Dane says it's fine, so it's fine.
     for (let i = 0; i < set.length; i++) {
-      if (!value.includes(set[i])) {
-        return `${key} does not have ${set[i]}`;
-      }
+      if (!value.includes(set[i])) return `${key} does not have ${set[i]}`;
     }
   }
-  return "N/A";
+  return "All companies have all items in this set";
 }
 
-// a more clean write up
+// console.log(missingCompany(uniformSet1, uniformPieces1)); //passes all test cases
+
+//The cleaned up version I submitted
 
 function findMissingCompany(uniformSet, uniformPieces) {
   //we store all companies and their existing uniformPieces in a Map
@@ -134,13 +152,14 @@ function findMissingCompany(uniformSet, uniformPieces) {
   //Now we can loop through the keys and values of m
   for ([key, value] of m) {
     //we check the value array of each key contains all values of uniformSet
+
     for (let i = 0; i < uniformSet.length; i++) {
       //if it does not return the company who failed the condition
-      if (!value.includes(uniformSet[i])) return `${key}`;
+      if (!value.includes(uniformSet[i])) return key;
     }
   }
   //if matches were found for everything return the string 'N/A'
   return "N/A";
 }
 
-console.log(missingCompany(uniformSet3, uniformPieces3)); //passes all test cases
+// console.log(findMissingCompany(uniformSet3, uniformPieces3)); //passes all test cases
