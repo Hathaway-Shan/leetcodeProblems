@@ -43,10 +43,10 @@ Which would look like this
 */
 
 function missingNumsSet(array) {
-  const dictionary = new Set(nums);
+  const dictionary = new Set(array);
   const returnArr = [];
 
-  for (let x = 1; x <= nums.length; x++) {
+  for (let x = 1; x <= array.length; x++) {
     if (!dictionary.has(x)) {
       returnArr.push(x);
     }
@@ -54,7 +54,7 @@ function missingNumsSet(array) {
   return returnArr;
 }
 
-// console.log(missingNumsSet(nums)); //returns expected
+console.log(missingNumsSet(nums)); //returns expected
 
 /*
 This performs basically the same as above but cuts a for loop and looks a lot more clean
@@ -133,4 +133,4 @@ checking for positive values and returning their indexes
   }
   return returnArr;
 }
-console.log(findDisappearedNumAbs(nums));
+// console.log(findDisappearedNumAbs(nums));
