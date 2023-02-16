@@ -6,10 +6,14 @@ solving LeetCode problems.
 ## Lessons Learned
 
 1. **Number** and **parseInt** only have about 15 digits of decimal precision.
-   If the number you're dealing with is larger than that you'll need to find a different tactic.
+   If the number you're dealing with is larger than that you'll probably need to use **BigInt**,
+   or do an array operation from the back that effects only a small portion.
 
 2. **Objects** and **Arrays** cannot be compared with === or == even if their contents are identical
    do it in a loop or something.
+
+3. **ReGex** is almost always a mistake. If you're about to use Regex think for a moment if you could
+   accomplish the same objective with a combination of **split()** and **join()**.
 
 ## One Liners
 
@@ -25,10 +29,25 @@ solving LeetCode problems.
 String(number)
 ```
 
-- Convert all string number values in an array into numbers
+- Convert all string number values in an array into numbers or vice versa
 
 ```js:
+//convert to numbers
 array.map(Number)
+//convert to strings
+array.map(String)
+```
+
+- Split all words in a string into an array of words
+
+```js:
+string.split(' ')
+```
+
+- Join an array of words together with no additional spaces
+
+```js:
+array.filter(element => element !== '').join(' ')
 ```
 
 - Find the lowest numerical value in an array and its index
@@ -103,4 +122,13 @@ const mapValueArray = Array.from(hashMap.values()).sort((a, b) => a - b);
 const set = new Set(Array.from(hashMap.values()))
 //2.
 const set = new Set([...hashMap.values()])
+```
+
+- Return the first Key or Value of a Map
+
+```js:
+//return key
+return hashMap.keys().next().value
+//return value
+return hashMap.value().next().value
 ```
