@@ -8,6 +8,7 @@ solving LeetCode problems.
 1. **Number** and **parseInt** only have about 15 digits of decimal precision.
    If the number you're dealing with is larger than that you'll probably need to use **BigInt**,
    or do an array operation from the back that effects only a small portion.
+   See Plus One and Add to Array-form of Integer for examples.
 
 2. **Objects** and **Arrays** cannot be compared with === or == even if their contents are identical
    do it in a loop or something.
@@ -80,7 +81,7 @@ indexOf(Math.max(...array))
 
 ```js:
 //slicing will create a shallow copy avoiding mutation
-const newArr = array.slice().toString().split(',')
+const newArr = array.slice()
 const singlePrint = newArr.join('')
 // console.log(singlePrint) //returns '123456789'
 ```

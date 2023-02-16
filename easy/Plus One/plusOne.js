@@ -40,3 +40,21 @@ var plusOne = function (digits) {
   digits.unshift(1);
   return digits;
 };
+
+//this is a pretty average solution to the problem
+//if you don't want to deal with the logic of it you can always just use a BigInt for a one liner
+
+function plusOneLiner(array) {
+  //join all array elements into string and type them BigInt and add 1 also of type BigInt
+  return (
+    (BigInt(array.join("")) + BigInt(1))
+      //change the type back to a string
+      .toString()
+      //split the string into an array of characters
+      .split("")
+      //map the characters to digits (often optional on leetcode)
+      .map(Number)
+  );
+}
+
+// console.log(plusOneLiner(arr)); //returns expected
