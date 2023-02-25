@@ -16,6 +16,54 @@ solving LeetCode problems.
 3. **ReGex** is almost always a mistake. If you're about to use Regex think for a moment if you could
    accomplish the same objective with a combination of **split()** and **join()**.
 
+4. **Fancy For Loops** a for loop is written with four distinct parts:
+
+```js
+for (initialize statement; condition statement; increment statement) {
+   //code block statement
+}
+```
+
+Statements run in the following order:
+**Initialize Statement:** executed before the loop starts.
+**Condition Statement:** defines the condition for running the loop and checks it for each loop.
+**Code Block Statement:** executes each time the condition for running the loop evaluates true.
+**Increment Statement:** executes each time after the code block has been run.
+
+variables declared outside of the body of a loop have greater scope than the loop.
+variables declared inside the body of the loop are reinitialized with their declared value
+each pass through.
+
+However, you can declare multiple variables in your **Initialize Statement** seperated by commas.
+
+```js
+for (i = 0, j = array.length; i < j; i++, j--) {
+  //two pointers with the initialize statement
+}
+```
+
+you can also declare multiple loop conditions using the **&&** or **||** operators.
+
+```js
+for (i = 0; i < array.length && array[i] !== 4; i++) {
+  //this can be used to cut down on breaks in the loop
+}
+```
+
+you can also not declare an **Increment Statement** and move the that logic inside the body.
+
+```js
+for (i = 0, j = array.length; i < array.length && j > 0; ) {
+  if (array[i] == array[i]) {
+    //some logic
+  }
+  i++;
+  j--;
+}
+```
+
+examples of this syntax can be found in **Reverse a String** and **Reverse Vowels of a String**
+
 ## One Liners
 
 - Convert a string to a number
