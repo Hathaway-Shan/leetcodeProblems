@@ -16,7 +16,7 @@ solving LeetCode problems.
 3. **ReGex** is almost always a mistake. If you're about to use Regex think for a moment if you could
    accomplish the same objective with a combination of **split()** and **join()**.
 
-4. **Fancy For Loops** a for loop is written with four distinct parts:
+4. **Unorthodox For Loops** a for loop is written with four distinct parts:
 
 ```js
 for (initialize statement; condition statement; increment statement) {
