@@ -19,6 +19,11 @@ array = [-1,0,3,5,9,12]
 target = 2
 returns -1 **the value 2 does not exist in this array
 */
+arrayT = [-1, 0, 3, 5, 9, 12];
+targetT = 9;
+
+arrayF = [-1, 0, 3, 5, 9, 12];
+targetF = 2;
 
 function binarySearch(array, target) {
   //since we are working with an ascending ordered array we can implement a binary search
@@ -74,3 +79,5 @@ function binarySearch(array, target) {
   );
   return -1;
 }
+
+console.log(binarySearch(arrayF, targetF)); //returns expected both test cases
