@@ -80,4 +80,42 @@ function binarySearch(array, target) {
   return -1;
 }
 
-console.log(binarySearch(arrayF, targetF)); //returns expected both test cases
+// console.log(binarySearch(arrayF, targetF)); //returns expected both test cases
+
+//this logic can also be written in an unconventional for loop syntax
+//although the result is both slower and more memory intensive, splitting hairs levels though
+
+function binarySearchFor(array, target) {
+  for (let left = 0, middle = 0, right = array.length - 1; left <= right; ) {
+    //once again we declare the logic for finding the middle on each iteration
+    middle = Math.floor((left + right) / 2);
+
+    if (target === array[middle]) {
+      // console.log(`target ${target} found at index ${middle}`);
+      return middle;
+    }
+
+    if (target > array[middle]) {
+      // console.log('searching right side of array...');
+      left = middle + 1;
+    }
+
+    if (target < array[middle]) {
+      // console.log('searching left side of array...');
+      right = middle - 1;
+    }
+    // if no match is found loop again
+    else {
+      console.log("no match found looping again");
+    }
+  }
+  //if we make it through the loop with no return return - 1
+  console.log(
+    `no match found for ${target} in array from ${array[0]} to ${
+      array.length - 1
+    }`
+  );
+  return -1;
+}
+
+console.log(binarySearchFor(arrayF, targetF)); //returns expected both test cases
