@@ -150,4 +150,4 @@ function binaryLeft(array, target) {
   return array[left] == target ? left : -1;
 }
 
-console.log(binaryLeft(arrayF, targetF));
+console.log(binaryLeft(arrayF, targetF)); //returns expected both test cases
