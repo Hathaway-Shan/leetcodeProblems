@@ -118,4 +118,36 @@ function binarySearchFor(array, target) {
   return -1;
 }
 
-console.log(binarySearchFor(arrayF, targetF)); //returns expected both test cases
+// console.log(binarySearchFor(arrayF, targetF)); //returns expected both test cases
+
+/*
+this a different syntax that works for finding the leftmost target
+that matches our search. Useful if you are dealing with an array of booleans 
+like in First Bad Version
+*/
+
+function binaryLeft(array, target) {
+  //declare the pointers we will need for a binary search
+  let left = 0;
+  let mid = 0;
+  let right = array.length - 1;
+
+  while (left <= right) {
+    //declare the logic to calculate our middle pointer
+    mid = Math.floor((left + right) / 2);
+
+    if (array[mid] < target) {
+      console.log("moving right...");
+      left = mid + 1;
+    } else {
+      console.log("moving left...");
+      right = mid - 1;
+    }
+  }
+  //if after the loop completes our left pointer is on the target
+  //return the value of left as the array index
+  //otherwise return -1;
+  return array[left] == target ? left : -1;
+}
+
+console.log(binaryLeft(arrayF, targetF));
