@@ -1,5 +1,5 @@
 /*
-file path **node easy/Longest\ Substring/longestSubstring**
+file path **node medium/Longest\ Substring/longestSubstring**
 
 Given a string s, find the length of the longest substring without repeating characters.
 
