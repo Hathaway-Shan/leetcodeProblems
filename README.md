@@ -16,7 +16,18 @@ solving LeetCode problems.
 3. **ReGex** is almost always a mistake. If you're about to use Regex think for a moment if you could
    accomplish the same objective with a combination of **split()** and **join()**.
 
-4. **Unorthodox For Loops** a for loop is written with four distinct parts:
+4. **Sliding Window Problems** use two pointers and a nested loop that runs in O(n) time.
+   There are a couple of hints you can use to identify the need for a Sliding Window solution.
+   Sliding window problems come in two types: bounded and dynamic.
+   In a bounded problem you are given the size the window.
+   In a dynamic problem you have to find the size of the window which will involve a leading and trailing edge.
+   Examples of both can be found below.
+
+- The problem will involve a data structure that is ordered and iterable like an array or a string
+- You are looking for some subrange in that array/string, like a longest, shortest or target value.
+- The biggest giveaway is that the thing you are looking for is often some kind of optimal, like the longest sequence or shortest sequence of something that satisfies a given condition exactly.
+
+5. **Unorthodox For Loops** a for loop is written with four distinct parts:
 
 ```js
 for (initialize statement; condition statement; increment statement) {
