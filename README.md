@@ -75,6 +75,8 @@ for (i = 0, j = array.length; i < array.length && j > 0; ) {
 
 examples of this syntax can be found in **Reverse a String** and **Reverse Vowels of a String**
 
+6. **Binary Search**
+
 ## One Liners
 
 - Convert a string to a number
